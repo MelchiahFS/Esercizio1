@@ -10,6 +10,12 @@
 
     <color name="primaryDarkColor">#900000</color>
 
-    <color name="primaryTextColor">#ffffff</color>
+    <color name="primaryTextColor">#000000</color>
+        <color name="status_color">#4763ff</color>
+        <color name="primary_material_light">#ffffff</color>
+    <color name="button_pressed">#1600d8</color>
+    <color name="button_focused">#1600d8</color>
+    <color name="button_default">#0e007d</color>
 
-</resources>
+
+    </resources>
