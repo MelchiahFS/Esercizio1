@@ -4,5 +4,7 @@
         android:drawable="@color/button_pressed"/> <!-- pressed -->
     <item android:state_focused="true"
         android:drawable="@color/button_focused"/> <!-- focused -->
+    <item android:state_enabled="false"
+        android:drawable="@color/button_disabled"/> <!-- disabled-->
     <item android:drawable="@color/button_default"/> <!-- default -->
 </selector>

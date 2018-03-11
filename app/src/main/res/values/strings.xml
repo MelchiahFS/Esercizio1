@@ -3,4 +3,6 @@
     <string name="add">+</string>
     <string name="subtract">-</string>
     <string name="insert_num">Inserisci un numero</string>
+    <string name="divide_by_4">/ 4</string>
+    <string name="times_2">* 2</string>
 </resources>

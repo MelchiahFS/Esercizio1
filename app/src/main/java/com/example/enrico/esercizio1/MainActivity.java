@@ -8,8 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 
-public class MainActivity extends AppCompatActivity
-{
+public class MainActivity extends AppCompatActivity {
 
     private static final int MINVALUE = 1;
     private static final int MAXVALUE = 100;
@@ -28,22 +27,35 @@ public class MainActivity extends AppCompatActivity
         seekBar = (SeekBar) findViewById(R.id.seekBar);
         plus = (Button) findViewById(R.id.plus);
         minus = (Button) findViewById(R.id.minus);
+        divide = (Button) findViewById(R.id.dividi4);
+        multiply = (Button) findViewById(R.id.moltiplica2);
         editText = (EditText) findViewById(R.id.num);
 
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 aggiornaValore(valAttuale + 1);
             }
         });
 
-        minus.setOnClickListener(new View.OnClickListener()
-        {
+        minus.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 aggiornaValore(valAttuale - 1);
+            }
+        });
+
+        divide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                aggiornaValore(valAttuale / 4);
+            }
+        });
+
+        multiply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                aggiornaValore(valAttuale * 2);
             }
         });
 
@@ -68,23 +80,25 @@ public class MainActivity extends AppCompatActivity
         this.aggiornaValore(valAttuale);
     }
 
-    private void aggiornaValore(int nuovoVal)
-    {
+    private void aggiornaValore(int nuovoVal) {
         if (nuovoVal > MAXVALUE)
             nuovoVal = MAXVALUE;
         if (nuovoVal < MINVALUE)
             nuovoVal = MINVALUE;
         this.valAttuale = nuovoVal;
         this.editText.setText("" + valAttuale);
-        if(this.seekBar.getProgress() != valAttuale) {
+        if (this.seekBar.getProgress() != valAttuale) {
             this.seekBar.setProgress(valAttuale);
         }
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
+        if (nuovoVal / 4 < MINVALUE)
+            divide.setEnabled(false);
+        else
+            divide.setEnabled(true);
+        if (nuovoVal * 2 > MAXVALUE)
+            multiply.setEnabled(false);
+        else
+            multiply.setEnabled(true);
     }
 }
+
